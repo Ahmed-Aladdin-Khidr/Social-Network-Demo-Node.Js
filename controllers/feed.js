@@ -1,25 +1,31 @@
 exports.getPosts = (req, res, next) => {
-  res.status(200).json({ 
+  res.status(200).json({
     posts: [
-        { 
-            _id: '1',
-            title: "hello",
-            content: "world",
-            imageUrl: 'images/duck.jpg',
-            creator: {
-                name: 'Ahmed Aladdin'
-            },
-            createdAt: new Date()
-        }
-    ] 
-    });
+      {
+        _id: "1",
+        title: "hello",
+        content: "world",
+        imageUrl: "images/duck.jpg",
+        creator: {
+          name: "Ahmed Aladdin",
+        },
+        createdAt: new Date(),
+      },
+    ],
+  });
 };
 
 exports.createPost = (req, res, next) => {
-    const title = req.body.title;
-    const content = req.body.content;
-    res.status(201).json({
-        message: 'Post created successfully!',
-        post: { id: new Date().toDateString(), title: title, content: content }
-    });
-}
+  const title = req.body.title;
+  const content = req.body.content;
+  res.status(201).json({
+    message: "Post created successfully!",
+    post: {
+      _id: new Date().toDateString(),
+      title: title,
+      content: content,
+      creator: { name: "Ahmed Aladdin" },
+      createdAt: new Date()
+    },
+  });
+};
