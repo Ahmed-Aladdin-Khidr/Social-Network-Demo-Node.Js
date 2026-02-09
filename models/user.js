@@ -15,10 +15,10 @@ const userSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        required: true
+        default: 'I\'m new!'
     },
     posts: [{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Post'
     }]
 });
